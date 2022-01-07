@@ -1,0 +1,75 @@
+<div class="container" >
+    <div class="row" style="margin: 25px;">
+
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input type="text" #searchText nz-input placeholder="input search text"  Green   (keyup.enter)="search(searchText.value)"/>
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+
+
+      <nz-table  [nzData]="['']"> 
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Activity</th>               
+            <th>Address</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr  *ngFor="let todo of userdata; let i = index" >
+              <td>{{ todo.userName }}</td>
+              <td>{{ todo.email }}</td>
+              <td>{{ todo.radio }}</td>
+              <td>{{ todo.userActivity }}</td>
+              <td>{{ todo.address }}</td>            
+            <td>
+              <input type="button" value="Edit" (click)="edit(todo)" />
+              <nz-divider nzType="vertical"></nz-divider>
+              <input type="button" value="Delete" (click)="deleteRow(i)"/>
+            </td>
+          </tr>
+        </tbody>
+
+      </nz-table>
+
+     
+
+<!-- 
+<table class="table table-hover"  >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>Activity</th>
+
+      <th>Address</th>
+      <th>Action</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr  *ngFor="let todo of (_userData$ | async); let i = index" > -->
+<!-- 
+    <tr  *ngFor="let todo of userdata; let i = index" >
+      <td>{{ todo.userName }}</td>
+      <td>{{ todo.email }}</td>
+      <td>{{ todo.radio }}</td>
+      <td>{{ todo.userActivity }}{{ todo.userActivityID }}</td>
+      <td>{{ todo.address }}</td>
+      <td><input type="button" value="Edit" (click)="edit(todo)" /></td>
+      <td><input type="button" value="Delete" (click)="deleteRow(i)"/></td>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</div> --> 
+<!-- 
+<tr  *ngFor="let todo of (_userData$ | async)"> --> 
